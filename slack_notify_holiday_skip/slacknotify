@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function post() {
+  msg="$1"
+  curl -s -o /dev/null -w "%{http_code}" -X POST 'https://slack.com/api/chat.postMessage' \
+    -d 'token='"$TOKEN"'' \
+    -d 'channel=#'"$CHANNEL_NAME"'' \
+    -d 'text='"$msg"''
+}
+post "jikken"
